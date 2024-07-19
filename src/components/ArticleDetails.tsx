@@ -61,7 +61,7 @@ const ArticleDetail: React.FC = () => {
       >
         <Stack spacing={2}>
           <Box
-            sx={{ width: "100%", height: UpLg ? 520 : 200, overflow: "hidden" }}
+            sx={{ width: "100%", height: UpLg ? 500 : 200, overflow: "hidden" }}
           >
             <img
               src={imageSrc}

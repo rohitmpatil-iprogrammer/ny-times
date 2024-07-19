@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import ArticleListContainer from '../components/ArticleListContainer';
 import ArticleDetail from '../components/ArticleDetails';
@@ -6,12 +6,12 @@ import ArticleDetail from '../components/ArticleDetails';
 
 const AppRoutes = () => {
   return (
-    <MemoryRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<ArticleListContainer/>} />
         <Route path="/article/:id" element={<ArticleDetail />} />
       </Routes>
-    </MemoryRouter>
+    </Router>
   );
 };
 
