@@ -14,7 +14,6 @@ interface CustomCardProps {
   abstract: string;
   imageSrc: string;
   byline?: string;
-  url?: string;
 }
 
 const CustomCard = ({
@@ -23,7 +22,6 @@ const CustomCard = ({
   abstract,
   imageSrc,
   byline,
-  url,
 }: CustomCardProps) => {
 
   const router = useNavigate();
@@ -35,8 +33,9 @@ const CustomCard = ({
     <Card
       sx={{
         height: "100%",
+        textDecoration: "none",
         maxWidth: 345,
-        cursor: url ? "pointer" : "default",
+        cursor: "pointer",
         "&:hover": {
           backgroundColor: "#f5f5f5",
           transition: "background-color 0.3s",
