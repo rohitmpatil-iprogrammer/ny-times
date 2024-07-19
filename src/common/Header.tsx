@@ -5,7 +5,7 @@ export const Header = ({ title }: { title: string }) => {
   return (
     <AppBar position="fixed" sx={{ mb: 2  }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: "center", textDecoration: "italic"}}>
           {title}
         </Typography>
       </Toolbar>

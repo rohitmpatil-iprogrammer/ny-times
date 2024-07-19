@@ -5,6 +5,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
+import { useResponsive } from "../hooks/useResponsive";
 
 type Props = {
   prevTitle: string;
@@ -13,21 +14,24 @@ type Props = {
 
 export default function CustomBreadCrumb({ prevTitle, currentTitle }: Props) {
   const router = useNavigate();
+  const Uplg = useResponsive("up", "lg");
+
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     router(-1);
   };
+
   const breadcrumbs = [
     <Link
       underline="hover"
-      key="2"
+      key="prev-title"
       color="inherit"
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
       {prevTitle}
     </Link>,
-    <Typography key="3" color="text.primary">
+    <Typography key="current-title" color="text.primary" sx={{ fontSize: Uplg? "1.2rem": "0.8rem" }}>
       {currentTitle}
     </Typography>,
   ];

@@ -29,7 +29,7 @@ const CustomCard = ({
     <Card
       sx={{
         height: "100%",
-        maxWidth: url ? 500 : 345,
+        maxWidth: 345,
         cursor: url ? "pointer" : "default",
         "&:hover": {
           backgroundColor: "#f5f5f5",
@@ -39,13 +39,15 @@ const CustomCard = ({
       key={id}
     >
       <Link
+      className="Card-link"
         to={`/article/${id}`}
-        style={{ cursor: !url ? "pointer" : "default" }}
+        style={{ cursor: "pointer"  }}
       >
         <CardMedia
+          component="img"
           sx={{
-            height: url ? 240 : 140,
-            objectFit: "contain",
+            height:  200,
+            objectFit: "cover",
             "&:hover": {
               transform: "scale(1.05)",
               transition: "transform 0.3s",
@@ -55,7 +57,7 @@ const CustomCard = ({
           title={title}
         />
         <CardContent
-          sx={{ minHeight: 100, maxHeight: 200, height: url ? 250 : 200 }}
+          sx={{ minHeight: 100, maxHeight: 200, height: 180 }}
         >
           {byline && (
             <Typography
@@ -88,14 +90,6 @@ const CustomCard = ({
           </Typography>
         </CardContent>
       </Link>
-      {url && (
-        <CardActions>
-          <a rel="noopener noreferrer" href={url} target="_blank">
-            {" "}
-            Read More{" "}
-          </a>
-        </CardActions>
-      )}
     </Card>
   );
 };
