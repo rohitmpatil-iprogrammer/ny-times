@@ -1,5 +1,5 @@
 import axios from "axios";
-console.log(import.meta.env.VITE_APP_API_KEY);
+
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 const BASE_URL = import.meta.env.VITE_END_POINT;
 
