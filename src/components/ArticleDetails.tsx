@@ -17,7 +17,7 @@ const ArticleDetail: React.FC = () => {
 
   const article = articles.find((a) => a.id.toString() === id);
   const imageSrc = article?.media?.[0]?.["media-metadata"]?.[2]?.url;
-  
+
   if (loading) return <GlobalLoader />;
   if (error) return <ErrorPage errorMessage={error} />;
   if (!article) {
@@ -51,6 +51,7 @@ const ArticleDetail: React.FC = () => {
       </Helmet>
       <CustomBreadCrumb prevTitle="List" currentTitle={article.title} />
       <Container
+        maxWidth={UpLg? "md": "sm"}
         sx={{
           paddingTop: 2,
           display: "flex",
@@ -69,19 +70,18 @@ const ArticleDetail: React.FC = () => {
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
             />
           </Box>
-          <Typography variant={UpLg ? "h2" : "h5"} gutterBottom>
+          <Typography variant={UpLg ? "h3" : "h4"} gutterBottom>
             {article.title}
           </Typography>
-          <Typography variant={UpLg ? "body1" : "caption"} gutterBottom>
+          <Typography variant={UpLg ? "body1" : "h6"} gutterBottom>
             {article.abstract}
           </Typography>
           <Typography variant="body1" gutterBottom>
-            By: {article.byline}
+            Author: {article.byline}
           </Typography>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             <a rel="noopener noreferrer" href={article?.url} target="_blank">
-              {" "}
-              Read More{" "}
+              Read More
             </a>
           </Typography>
         </Stack>
