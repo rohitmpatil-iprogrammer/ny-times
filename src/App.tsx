@@ -8,9 +8,9 @@ function App() {
   return (
     <HelmetProvider>
       <ErrorBoundary>
-        <Header title="Popular Articles" />
+        <Header title="New York Times Articles"/>
         <main>
-          <Stack sx={{ pt: 10, pb: 10 }}>
+          <Stack sx={{ pt: 10, pb: 5 }}>
             <AppRoutes />
           </Stack>
         </main>

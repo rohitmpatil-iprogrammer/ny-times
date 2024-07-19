@@ -1,13 +1,13 @@
 import React from "react";
 import { Article } from "../services/api";
 import CustomCard from "../common/CustomCard";
-import { Helmet } from "react-helmet-async";
 
 interface ArticleListProps {
   articles: Article[];
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
+
   return (
     <>
       {articles.map((article) => {
