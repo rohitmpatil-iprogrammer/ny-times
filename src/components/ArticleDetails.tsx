@@ -9,17 +9,32 @@ import { Helmet } from "react-helmet-async";
 import CustomBreadCrumb from "../common/CustomBreadCrumb";
 import { useResponsive } from "../hooks/useResponsive";
 
+/**
+ * Component to display details of a specific article based on the ID parameter in the URL.
+ */
 const ArticleDetail: React.FC = () => {
+  // Get the screen size breakpoint for responsiveness
   const UpLg = useResponsive("up", "lg");
 
+  // Get the 'id' parameter from the URL using the useParams hook
   const { id = "" } = useParams<{ id: string }>();
+
+  // Fetch article data using the useApiCall custom hook
   const { articles, loading, error } = useApiCall();
 
+  // Find the article with the matching 'id' from the fetched data
   const article = articles.find((a) => a.id.toString() === id);
+
+  // Get the image source URL from the article data for display
   const imageSrc = article?.media?.[0]?.["media-metadata"]?.[2]?.url;
 
+  // Render loading spinner if data is still loading
   if (loading) return <GlobalLoader />;
+
+  // Render error page if there is an error fetching data
   if (error) return <ErrorPage errorMessage={error} />;
+
+  // Display a message if no article is found with the given 'id'
   if (!article) {
     return (
       <Container
@@ -44,6 +59,7 @@ const ArticleDetail: React.FC = () => {
     );
   }
 
+  // Render the article details if article is found
   return (
     <>
       <Helmet>
@@ -51,7 +67,7 @@ const ArticleDetail: React.FC = () => {
       </Helmet>
       <CustomBreadCrumb prevTitle="List" currentTitle={article.title} />
       <Container
-        maxWidth={UpLg? "md": "sm"}
+        maxWidth={UpLg ? "md" : "sm"}
         sx={{
           paddingTop: 2,
           display: "flex",

@@ -16,6 +16,16 @@ interface CustomCardProps {
   byline?: string;
 }
 
+/**
+ * CustomCard component represents a card element with image, title, and abstract.
+ * Clicking on the card navigates to a specific article.
+ *
+ * @param {number} id - The unique identifier of the card.
+ * @param {string} title - The title of the card.
+ * @param {string} abstract - The abstract or description of the card.
+ * @param {string} imageSrc - The URL of the image to display on the card.
+ * @param {string} [byline] - Optional byline text for the card.
+ */
 const CustomCard = ({
   id,
   title,
@@ -24,11 +34,36 @@ const CustomCard = ({
   byline,
 }: CustomCardProps) => {
 
+  /**
+   * useNavigate hook from react-router-dom to handle navigation.
+   * It is used to programmatically navigate to a specific route.
+   */
   const router = useNavigate();
+
+  /**
+   * handleRedirection function is called when the card is clicked.
+   * It prevents the default behavior of the click event.
+   * Then, it uses the useNavigate hook to navigate to the specified article route.
+   *
+   * @param {React.MouseEvent<HTMLAnchorElement>} e - The click event.
+   */
   const handleRedirection = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router(`/article/${id}`)
-  }
+    router(`/article/${id}`);
+  };
+
+  /**
+   * The component returns a Card component from Material-UI.
+   * It sets various styles and properties for the card display.
+   * The Card component includes a CardMedia component for the image,
+   * a CardContent component for the title, abstract, and optional byline,
+   * and additional Typography components for the title and abstract.
+   *
+   * The Card component has an onClick event handler that calls the
+   * handleRedirection function when the card is clicked.
+   *
+   * @returns {JSX.Element} The Card component.
+   */
   return (
     <Card
       sx={{

@@ -13,7 +13,14 @@ const Overlay = styled(Container)(({ theme }) => ({
   alignItems: "center",
 }));
 
+/**
+ * Component to display a loading spinner over the entire screen.
+ */
 const GlobalLoader = () => {
+  /**
+   * Render method to display the loading spinner.
+   * @returns {ReactNode} The rendered content.
+   */
   return (
     <Overlay>
       <CircularProgress />
