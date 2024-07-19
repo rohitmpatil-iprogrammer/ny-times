@@ -1,6 +1,6 @@
 # NY Most Viewed Articles
 
-New york times articles are listed in Car view also have Detailed View using Newyork Article api
+New york times articles are listed in Card view also have Detailed View using Newyork Article api
 
 ## Technologies Used
 
