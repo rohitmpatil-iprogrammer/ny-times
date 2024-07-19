@@ -7,6 +7,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import DEFAULT_IMG from "../assets/default-img.png";
 
 interface CustomCardProps {
   id: number;
@@ -43,15 +44,16 @@ const CustomCard = ({
         style={{ cursor: !url ? "pointer" : "default" }}
       >
         <CardMedia
+          component="img"
           sx={{
-            height: url ? 240 : 140,
-            objectFit: "contain",
+            height: url ? 340 : 240,
+            objectFit: "cover",
             "&:hover": {
               transform: "scale(1.05)",
               transition: "transform 0.3s",
             },
           }}
-          image={imageSrc}
+          image={imageSrc || DEFAULT_IMG}
           title={title}
         />
         <CardContent

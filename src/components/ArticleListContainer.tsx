@@ -16,7 +16,7 @@ const ArticleListContainer: React.FC = () => {
         <Stack spacing={2} direction="row" justifyContent="center" alignItems="center">
           <Grid container spacing={2}>
             {articles.map((article) => (
-              <Grid item xs={12} sm={6} md={4} key={article.id}>
+              <Grid key={article.id} item xs={12} sm={6} md={4}>
                 <ArticleList articles={[article]} />
               </Grid>
             ))}

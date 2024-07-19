@@ -13,7 +13,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
       {articles.map((article) => {
         const imageSrc = article?.media?.[0]?.["media-metadata"]?.[2]?.url;
         return (
-         <CustomCard id={article.id} abstract={article.abstract} title={article.title} imageSrc={imageSrc} />
+         <CustomCard key={article.id} id={article.id} abstract={article.abstract} title={article.title} imageSrc={imageSrc} />
         );
       })}
     </>
