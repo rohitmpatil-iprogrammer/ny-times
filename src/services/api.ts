@@ -1,7 +1,7 @@
 import axios from "axios";
-
-const API_KEY = "m9PzBHF9NKC3bZuaeU0T3ivyKlpHU6c1";
-const BASE_URL = "https://api.nytimes.com/svc/mostpopular/v2/viewed";
+console.log(import.meta.env.VITE_APP_API_KEY);
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
+const BASE_URL = import.meta.env.VITE_END_POINT;
 
 export interface Article {
   id: number;
