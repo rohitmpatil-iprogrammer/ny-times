@@ -9,6 +9,14 @@ export type Query = 'up' | 'down' | 'between' | 'only';
 
 export type Value = Breakpoint | number;
 
+/**
+ * Custom hook for responsive design based on Material-UI breakpoints.
+ * @param {Query} query - The type of query ('up', 'down', 'between', 'only').
+ * @param {Value} start - The start breakpoint or number.
+ * @param {Value} end - The end breakpoint.
+ * @returns {ReturnType} - The boolean value indicating if the media query matches.
+ */
+
 export function useResponsive(query: Query, start?: Value, end?: Value): ReturnType {
   const theme = useTheme();
 
@@ -38,6 +46,11 @@ export function useResponsive(query: Query, start?: Value, end?: Value): ReturnT
 // ----------------------------------------------------------------------
 
 type BreakpointOrNull = Breakpoint | null;
+
+/**
+ * Custom hook to get the current width of the screen based on Material-UI breakpoints.
+ * @returns {BreakpointOrNull} - The current breakpoint or null.
+ */
 
 export function useWidth() {
   const theme = useTheme();
