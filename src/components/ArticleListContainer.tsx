@@ -33,7 +33,7 @@ const ArticleListContainer: React.FC = () => {
             sx={{ mb: 2 }}
           >
             {articles.map((article) => (
-                <ArticleList articles={[article]} />
+                <ArticleList key={article.id} articles={[article]} />
             ))}
           </Box>
       </Stack>
