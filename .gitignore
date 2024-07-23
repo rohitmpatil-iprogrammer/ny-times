@@ -7,3 +7,6 @@ package-lock.json
 # cypress
 cypress
 dist
+
+# coverage
+coverage
