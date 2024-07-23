@@ -36,6 +36,6 @@ describe('Header Component Tests', () => {
 
   // Negative test case it('does not break without a title', () => {
     console.error = jest.fn(); // Mock console.error to avoid polluting test output
-    const { getByText } = render(<Header title={undefined as unknown as string} />);
+    render(<Header title={undefined as unknown as string} />);
     expect(console.error).not.toHaveBeenCalled(); // Check if React logs any PropTypes warnings
   });

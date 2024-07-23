@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Article } from "../services/api";
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
 import { useApiCall } from "../hooks/useApiCall";
 import GlobalLoader from "../common/GlobalLoader";

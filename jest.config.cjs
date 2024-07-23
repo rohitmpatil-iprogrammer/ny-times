@@ -7,7 +7,28 @@ module.exports = {
 
   // Specify the transform configuration
   transform: {
-    "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "ts-jest"
+    "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": [
+      "ts-jest",
+    {
+          diagnostics: {
+            ignoreCodes: [1343],
+          },
+          astTransformers: {
+            before: [
+              {
+                path: 'node_modules/ts-jest-mock-import-meta',
+                options: {
+                  metaObjectReplacement: {
+                    env: {
+                      // Replicate as .env.local
+                      VITE_API_PATH: 'http://localhost:3001',
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        },]
   },
 
   preset: 'ts-jest',

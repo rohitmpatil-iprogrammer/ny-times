@@ -6,12 +6,12 @@ import axios from "axios";
 /**
  * Define the API key for the New York Times Most Popular Articles API.
  */
-const API_KEY = "m9PzBHF9NKC3bZuaeU0T3ivyKlpHU6c1";
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 /**
  * Define the base URL for the New York Times Most Popular Articles API.
  */
-const BASE_URL = "https://api.nytimes.com/svc/mostpopular/v2/viewed";
+const BASE_URL = import.meta.env.VITE_APP_END_POINT;
 
 /**
  * Interface representing an article.
