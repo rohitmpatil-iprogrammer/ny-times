@@ -37,6 +37,16 @@ module.exports = {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
   },
 
+  collectCoverage: true,
+
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+
+  coverageDirectory: 'coverage',
+
+  coveragePathIgnorePatterns: ['<rootDir>/node_modules/'],
+
+  coverageProvider: 'v8',
+
   // Specify the module file extensions
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 

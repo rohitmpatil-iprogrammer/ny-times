@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
-})
+  build: {
+    sourcemap: true, // Source map generation must be turned on
+  },
+  plugins: [
+    // Put the Sentry vite plugin after all other plugins
+    sentryVitePlugin({
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+    }),
+  ],
+});
